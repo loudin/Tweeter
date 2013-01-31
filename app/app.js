@@ -16,6 +16,7 @@ App.Tweet = DS.Model.extend({
 
 //Router for the app. We have an index, timeline resource, and a logout path.
 App.Router.map(function(){
+	this.route("index");
 	this.resource("timeline",function(){});
 	this.route("logout");
 });
@@ -45,7 +46,7 @@ App.TimelineIndexRoute = Ember.Route.extend({
 		$.get("/timeline",function(response){
 			jsonFromTwitter = JSON.parse(response.body)
 			if (!jsonFromTwitter)			return Ember.State.transitionTo("index");		//Redirect to the home page if the user is not logged in.
-			
+
 			if (jsonFromTwitter && jsonFromTwitter.errors){
 				return controller.set('error','Error fetching data from the Twitter API.')
 			}

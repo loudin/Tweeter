@@ -1,4 +1,5 @@
-/* line 3, ../../sass/app.scss */
+/* Common layout structural */
+/* line 4, ../../sass/app.scss */
 .container {
   width: 980px;
   margin: 0px auto;
@@ -10,62 +11,51 @@
   text-align: center;
 }
 
-/* line 12, ../../sass/app.scss */
+/* line 10, ../../sass/app.scss */
 .right {
   text-align: right;
 }
 
-/* line 15, ../../sass/app.scss */
+/* line 11, ../../sass/app.scss */
 .clear {
   clear: both;
 }
 
-/* line 16, ../../sass/app.scss */
+/* line 12, ../../sass/app.scss */
 .pull-left {
   float: left;
 }
 
-/* line 17, ../../sass/app.scss */
+/* line 13, ../../sass/app.scss */
 .pull-right {
   float: right;
 }
 
-/* line 18, ../../sass/app.scss */
+/* Common layout stylistic elements */
+/* line 16, ../../sass/app.scss */
 .boxee-black {
   color: #111111;
 }
 
-/* line 21, ../../sass/app.scss */
-header .container .inner-wrapper {
-  background: rgba(200, 200, 200, 0.5);
-  padding: 10px 20px;
-  position: relative;
-}
-/* line 25, ../../sass/app.scss */
-header .container .inner-wrapper h1 {
-  line-height: 1.5em;
-  text-transform: uppercase;
-}
-/* line 29, ../../sass/app.scss */
-header .container .inner-wrapper .page_header {
-  font-size: 22px;
-  position: absolute;
-  top: 28%;
-  left: 48%;
-}
-
-/* line 36, ../../sass/app.scss */
-.smaller {
-  font-size: 0.5em;
-}
-
-/* line 37, ../../sass/app.scss */
+/* line 17, ../../sass/app.scss */
 .error {
   color: red;
   font-weight: bold;
 }
 
-/* line 38, ../../sass/app.scss */
+/* line 18, ../../sass/app.scss */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0px;
+  line-height: 1.0em;
+}
+
+/* line 19, ../../sass/app.scss */
+a {
+  color: #dc2800;
+  text-decoration: none;
+}
+
+/* line 20, ../../sass/app.scss */
 .button {
   padding: 6px;
   margin: 10px 0px;
@@ -77,12 +67,12 @@ header .container .inner-wrapper .page_header {
   background: rgba(100, 100, 100, 0.4);
   display: inline-block;
 }
-/* line 39, ../../sass/app.scss */
+/* line 21, ../../sass/app.scss */
 .button.plain {
   background: none;
   margin: 0px;
 }
-/* line 48, ../../sass/app.scss */
+/* line 30, ../../sass/app.scss */
 .button a {
   padding: 10px 20px;
   display: inline-block;
@@ -95,12 +85,8 @@ header .container .inner-wrapper .page_header {
   text-decoration: none;
 }
 
-/* line 56, ../../sass/app.scss */
-#content_wrapper {
-  min-height: 500px;
-}
-
-/* line 62, ../../sass/app.scss */
+/* Application Layout */
+/* line 40, ../../sass/app.scss */
 body {
   margin: 0px;
   padding: 0px;
@@ -110,47 +96,64 @@ body {
   text-align: center;
 }
 
-/* line 69, ../../sass/app.scss */
-a {
-  color: #dc2800;
-  text-decoration: none;
+/* line 47, ../../sass/app.scss */
+#content_wrapper {
+  min-height: 500px;
 }
 
-/* line 73, ../../sass/app.scss */
-h1, h2, h3, h4, h5, h6 {
-  margin: 0px;
-  line-height: 1.0em;
-}
-
-/* line 74, ../../sass/app.scss */
-header {
+/* line 50, ../../sass/app.scss */
+header, footer {
   text-align: left;
 }
 
-/* line 77, ../../sass/app.scss */
+/* line 55, ../../sass/app.scss */
+header .container .inner-wrapper {
+  background: rgba(200, 200, 200, 0.5);
+  padding: 10px 20px;
+  position: relative;
+}
+/* line 59, ../../sass/app.scss */
+header .container .inner-wrapper h1 {
+  line-height: 1.5em;
+  text-transform: uppercase;
+}
+/* line 63, ../../sass/app.scss */
+header .container .inner-wrapper .page_header {
+  font-size: 22px;
+  position: absolute;
+  top: 28%;
+  left: 48%;
+}
+
+/* line 70, ../../sass/app.scss */
 footer {
-  text-align: left;
   font-size: 10px;
 }
 
-/* line 81, ../../sass/app.scss */
+/* Index */
+/* line 76, ../../sass/app.scss */
 .app-name {
-  position: relative;
   text-align: center;
 }
-/* line 84, ../../sass/app.scss */
+/* line 78, ../../sass/app.scss */
 .app-name h1 {
   text-transform: uppercase;
   font-size: 190px;
-  line-height: 1.0em;
 }
-/* line 88, ../../sass/app.scss */
+/* line 81, ../../sass/app.scss */
 .app-name h1 .boxee-black {
   text-shadow: 0px 0px 16px white;
 }
 
-/* line 94, ../../sass/app.scss */
-.tweet {
+/* Timeline */
+/* line 88, ../../sass/app.scss */
+#timeline {
+  -webkit-box-shadow: 0px 0px 20px black;
+  -moz-box-shadow: 0px 0px 20px black;
+  box-shadow: 0px 0px 20px black;
+}
+/* line 90, ../../sass/app.scss */
+#timeline .tweet {
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #555555), color-stop(100%, #333333));
   background: -webkit-linear-gradient(#555555, #333333);
   background: -moz-linear-gradient(#555555, #333333);
@@ -160,99 +163,80 @@ footer {
   border-bottom: 1px solid #999999;
   position: relative;
 }
-/* line 99, ../../sass/app.scss */
-.tweet .user {
+/* line 95, ../../sass/app.scss */
+#timeline .tweet .user {
   float: left;
 }
-/* line 102, ../../sass/app.scss */
-.tweet .body {
+/* line 98, ../../sass/app.scss */
+#timeline .tweet .body {
   float: left;
   margin: 0px 15px;
   width: 795px;
   min-height: 73px;
 }
-/* line 107, ../../sass/app.scss */
-.tweet .body .message {
+/* line 103, ../../sass/app.scss */
+#timeline .tweet .body .message {
   font-size: 25px;
   line-height: 1.2em;
   margin: 0px;
 }
-/* line 112, ../../sass/app.scss */
-.tweet .body .source {
+/* line 108, ../../sass/app.scss */
+#timeline .tweet .body .source {
   position: absolute;
   bottom: 10px;
   right: 20px;
   font-size: 12px;
 }
-/* line 118, ../../sass/app.scss */
-.tweet .favorite {
+/* line 114, ../../sass/app.scss */
+#timeline .tweet .favorite {
   float: right;
   width: 40px;
   height: 37px;
   background: url(/img/star-gray.png) 50% 50%;
 }
-/* line 119, ../../sass/app.scss */
-.tweet .favorite.favorited {
+/* line 115, ../../sass/app.scss */
+#timeline .tweet .favorite.favorited {
   background-image: url(/img/star.png);
 }
 
+/* Responsive Design */
 @media (min-width: 1140px) {
-  /* line 131, ../../sass/app.scss */
+  /* line 128, ../../sass/app.scss */
   .app-name h1 {
     font-size: 230px;
   }
-  /* line 133, ../../sass/app.scss */
+  /* line 130, ../../sass/app.scss */
   .app-name h1 .boxee-black {
     text-shadow: 0px 0px 20px white;
   }
 
-  /* line 137, ../../sass/app.scss */
+  /* line 134, ../../sass/app.scss */
   .container {
     width: 1140px;
   }
 
-  /* line 138, ../../sass/app.scss */
+  /* line 135, ../../sass/app.scss */
   .tweet .body {
     width: 955px;
   }
 }
 @media (max-width: 979px) {
-  /* line 142, ../../sass/app.scss */
+  /* line 139, ../../sass/app.scss */
   .app-name h1 {
     font-size: 150px;
   }
-  /* line 144, ../../sass/app.scss */
+  /* line 141, ../../sass/app.scss */
   .app-name h1 .boxee-black {
     text-shadow: 0px 0px 12px white;
   }
 
-  /* line 148, ../../sass/app.scss */
+  /* line 145, ../../sass/app.scss */
   .container {
     width: 768px;
   }
 
-  /* line 149, ../../sass/app.scss */
+  /* line 146, ../../sass/app.scss */
   .tweet .body {
     width: 585px;
   }
 }
-/*
-@media (max-width: 767px) {
-	.container{ width: 100%; }
-}*/
-/*
-.app-name h1:before{
-  top: 2px;
-  left: 2px;
-}
-.app-name h1:before, .app-name h1:after{
-  content: attr(title);
-  color: rgba(150, 150, 150, 0.15);
-  position: absolute;
-  width: 100%;
-  text-align: center;
-}
-.app-name h1:after{
-  top: 3px;
-  left: 3px;
-}*/

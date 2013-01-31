@@ -1,40 +1,22 @@
 @import "compass/css3";
 
+/* Common layout structural */
 .container{
 	width: 980px;
 	margin: 0px auto;
 	text-align: left;
 }
-
-.center{
-	text-align: center;
-}
-.right{
-	text-align: right;
-}
+.center{ text-align: center; }
+.right{ text-align: right; }
 .clear{ clear: both; }
 .pull-left{ float: left;}
 .pull-right{ float: right;}
+
+/* Common layout stylistic elements */
 .boxee-black{ color: rgb(17,17,17);}
-header{
-	.container{
-		.inner-wrapper{
-			background: rgba(200,200,200,0.5);
-			padding: 10px 20px;
-			position: relative;
-			h1{
-				line-height: 1.5em;
-				text-transform: uppercase;
-			}
-			.page_header{
-				font-size: 22px;
-				position: absolute; top: 28%; left: 48%;
-			}
-		}
-	}
-}
-.smaller{ font-size: 0.5em; }
 .error{ color: red; font-weight: bold;}
+h1,h2,h3,h4,h5,h6{ margin: 0px; line-height: 1.0em;}
+a{ color: rgb(220,40,0); text-decoration: none; }
 .button{
 	&.plain{
 		background: none;
@@ -53,12 +35,8 @@ header{
 		text-decoration: none;
 	}
 }
-#content_wrapper{
-	min-height: 500px;
-}
 
-
-
+/* Application Layout */
 body{
 	margin: 0px; padding: 0px;
   color: #fafafa;
@@ -66,67 +44,86 @@ body{
   font-family: "Cabin", "sans-serif";
 	text-align: center;
 }
-a{
-	color: rgb(220,40,0);
-	text-decoration: none;
+#content_wrapper{
+	min-height: 500px;
 }
-h1,h2,h3,h4,h5,h6{ margin: 0px; line-height: 1.0em;}
-header{
+header, footer{
 	text-align: left;
+}
+header{
+	.container{
+		.inner-wrapper{
+			background: rgba(200,200,200,0.5);
+			padding: 10px 20px;
+			position: relative;
+			h1{
+				line-height: 1.5em;
+				text-transform: uppercase;
+			}
+			.page_header{
+				font-size: 22px;
+				position: absolute; top: 28%; left: 48%;
+			}
+		}
+	}
 }
 footer{
-	text-align: left;
 	font-size: 10px;
 }
+
+
+/* Index */
 .app-name{
-  position: relative;
   text-align: center;
 	h1{
 	  text-transform: uppercase;
 	  font-size: 190px;
-	  line-height: 1.0em;
 		.boxee-black{
 			@include text-shadow(0px 0px 16px #fff);
 		}
 	}
 }
 
-.tweet{
-	@include background(linear-gradient(#555,#333));
-	padding: 20px 20px 30px;
-	border-bottom: 1px solid #999;
-	position: relative;
-	.user{
-		float: left;
-	}
-	.body{
-		float: left;
-		margin: 0px 15px;
-		width: 795px;
-		min-height: 73px;
-		.message{
-			font-size: 25px;
-			line-height: 1.2em;
-			margin: 0px;
+/* Timeline */
+#timeline{
+	@include box-shadow(0px 0px 20px #000);
+	.tweet{
+		@include background(linear-gradient(#555,#333));
+		padding: 20px 20px 30px;
+		border-bottom: 1px solid #999;
+		position: relative;
+		.user{
+			float: left;
 		}
-		.source{
-			position: absolute;
-			bottom: 10px; right: 20px;
-			font-size: 12px;
+		.body{
+			float: left;
+			margin: 0px 15px;
+			width: 795px;
+			min-height: 73px;
+			.message{
+				font-size: 25px;
+				line-height: 1.2em;
+				margin: 0px;
+			}
+			.source{
+				position: absolute;
+				bottom: 10px; right: 20px;
+				font-size: 12px;
+			}
 		}
-	}
-	.favorite{
-		&.favorited{
-			background-image: url(/img/star.png);
+		.favorite{
+			&.favorited{
+				background-image: url(/img/star.png);
+			}
+			float: right;
+			width: 40px; height: 37px;
+			background: url(/img/star-gray.png) 50% 50%;
 		}
-		float: right;
-		width: 40px; height: 37px;
-		background: url(/img/star-gray.png) 50% 50%;
 	}
 }
 
-//http://api.twitter.com/1/statuses/home_timeline.json?include_entities=true
 
+/* Responsive Design */
 @media (min-width: 1140px) {
 	.app-name h1{ 
 		font-size: 230px;
@@ -148,24 +145,3 @@ footer{
 	.container{ width: 768px;	}
 	.tweet .body{ width: 585px; }	
 }
-/*
-@media (max-width: 767px) {
-	.container{ width: 100%; }
-}*/
-
-/*
-.app-name h1:before{
-  top: 2px;
-  left: 2px;
-}
-.app-name h1:before, .app-name h1:after{
-  content: attr(title);
-  color: rgba(150, 150, 150, 0.15);
-  position: absolute;
-  width: 100%;
-  text-align: center;
-}
-.app-name h1:after{
-  top: 3px;
-  left: 3px;
-}*/

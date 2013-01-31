@@ -1,5 +1,6 @@
 <html>
   <head>
+    <title>Tweeter</title>
     <link href='http://fonts.googleapis.com/css?family=Cabin:400,700' rel='stylesheet' type='text/css'>
     <link href='./css/app.css' rel='stylesheet' type='text/css'>
     <script src="./lib/jquery-1.8.3.min.js"></script>
@@ -43,21 +44,24 @@
         <p class="error">{{controller.error}}</p>
       {{else}}
         {{#unless controller.length}}
-          <p>No Tweets Without Links!.</p>
-        {{/unless}}
-        {{#each controller}}
-          <div class="tweet">
-            <div class="user">
-              <img src="http://api.twitter.com/1/users/profile_image/{{unbound user.screen_name}}.jpg" />
-            </div>
-            <div class="body">
-              <div class="message">{{text}}</div>
-              <div class="source">From: {{{unbound source}}}</div>
-            </div>
-            <div {{bindAttr class="favorited :favorite"}}></div>
-            <div class="clear"></div>
+          <p>No Tweets Without Links!</p>
+        {{else}}
+          <div id="timeline">
+            {{#each controller}}
+              <div class="tweet">
+                <div class="user">
+                  <img src="http://api.twitter.com/1/users/profile_image/{{unbound user.screen_name}}.jpg" />
+                </div>
+                <div class="body">
+                  <div class="message">{{text}}</div>
+                  <div class="source">From: {{{unbound source}}}</div>
+                </div>
+                <div {{bindAttr class="favorited :favorite"}}></div>
+                <div class="clear"></div>
+              </div>
+            {{/each}}          
           </div>
-        {{/each}}      
+        {{/unless}}
       {{/if}}
     </script>
     
