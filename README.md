@@ -19,10 +19,10 @@ Currently, the code just supports a single user, as I'm using session variables 
 
 Here's what's going on structurally:
 * app
-* * app.js (Main Ember file. Because there is not much complexity to this app, I am just inserting all the routes, models, etc. into one file. Otherwise, I'd use RequireJS.)
-* * css 
-* * img
-* * lib (Contains JS libraries for use with my app.js)
+  * app.js (Main Ember file. Because there is not much complexity to this app, I am just inserting all the routes, models, etc. into one file. Otherwise, I'd use RequireJS.)
+  * css 
+  * img
+  * lib (Contains JS libraries for use with my app.js)
 * app.html (The App's HTML file)
 * Gemfile
 * Gemfile.lock
