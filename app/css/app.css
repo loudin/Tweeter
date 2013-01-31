@@ -1,0 +1,217 @@
+/* line 3, ../assets/sass/app.scss */
+.container {
+  width: 980px;
+  margin: 0px auto;
+  text-align: left;
+}
+
+/* line 9, ../assets/sass/app.scss */
+.center {
+  text-align: center;
+}
+
+/* line 12, ../assets/sass/app.scss */
+.right {
+  text-align: right;
+}
+
+/* line 15, ../assets/sass/app.scss */
+.clear {
+  clear: both;
+}
+
+/* line 16, ../assets/sass/app.scss */
+.pull-left {
+  float: left;
+}
+
+/* line 17, ../assets/sass/app.scss */
+.pull-right {
+  float: right;
+}
+
+/* line 20, ../assets/sass/app.scss */
+header .container .inner-wrapper {
+  background: rgba(200, 200, 200, 0.5);
+  padding: 10px 20px;
+}
+/* line 23, ../assets/sass/app.scss */
+header .container .inner-wrapper h1 {
+  line-height: 1.5em;
+  text-transform: uppercase;
+}
+
+/* line 31, ../assets/sass/app.scss */
+.button {
+  padding: 6px;
+  margin: 10px 0px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  background: rgba(100, 100, 100, 0.4);
+  display: inline-block;
+}
+/* line 32, ../assets/sass/app.scss */
+.button.plain {
+  background: none;
+  margin: 0px;
+}
+/* line 41, ../assets/sass/app.scss */
+.button a {
+  padding: 10px 20px;
+  display: inline-block;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #dc2800), color-stop(100%, #fa2800));
+  background: -webkit-linear-gradient(#dc2800, #fa2800);
+  background: -moz-linear-gradient(#dc2800, #fa2800);
+  background: -o-linear-gradient(#dc2800, #fa2800);
+  background: linear-gradient(#dc2800, #fa2800);
+  color: #fafafa;
+  text-decoration: none;
+}
+
+/* line 52, ../assets/sass/app.scss */
+body {
+  margin: 0px;
+  padding: 0px;
+  color: #fafafa;
+  background: url(../img/bg-slate.jpg);
+  font-family: "Cabin", "sans-serif";
+  text-align: center;
+}
+
+/* line 59, ../assets/sass/app.scss */
+a {
+  color: #dc2800;
+  text-decoration: none;
+}
+
+/* line 63, ../assets/sass/app.scss */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0px;
+  line-height: 1.0em;
+}
+
+/* line 64, ../assets/sass/app.scss */
+header {
+  text-align: left;
+}
+
+/* line 67, ../assets/sass/app.scss */
+footer {
+  text-align: left;
+  font-size: 10px;
+}
+
+/* line 71, ../assets/sass/app.scss */
+.app-name {
+  position: relative;
+  text-align: center;
+}
+/* line 74, ../assets/sass/app.scss */
+.app-name h1 {
+  text-transform: uppercase;
+  font-size: 190px;
+  line-height: 1.0em;
+}
+
+/* line 81, ../assets/sass/app.scss */
+.tweet {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #555555), color-stop(100%, #333333));
+  background: -webkit-linear-gradient(#555555, #333333);
+  background: -moz-linear-gradient(#555555, #333333);
+  background: -o-linear-gradient(#555555, #333333);
+  background: linear-gradient(#555555, #333333);
+  padding: 20px 20px 35px;
+  border-bottom: 1px solid #999999;
+}
+/* line 85, ../assets/sass/app.scss */
+.tweet .user {
+  float: left;
+}
+/* line 88, ../assets/sass/app.scss */
+.tweet .body {
+  float: left;
+  margin: 0px 15px;
+  width: 795px;
+  position: relative;
+  min-height: 73px;
+}
+/* line 94, ../assets/sass/app.scss */
+.tweet .body .message {
+  font-size: 25px;
+  line-height: 1.2em;
+  margin: 0px;
+}
+/* line 99, ../assets/sass/app.scss */
+.tweet .body .source {
+  position: absolute;
+  bottom: -25px;
+  right: 0px;
+  font-size: 12px;
+}
+/* line 105, ../assets/sass/app.scss */
+.tweet .favorite {
+  float: right;
+  width: 40px;
+  height: 37px;
+  background: url(/img/star-gray.png) 50% 50%;
+}
+/* line 106, ../assets/sass/app.scss */
+.tweet .favorite.favorited {
+  background-image: url(/img/star.png);
+}
+
+@media (min-width: 1140px) {
+  /* line 118, ../assets/sass/app.scss */
+  .app-name h1 {
+    font-size: 230px;
+  }
+
+  /* line 119, ../assets/sass/app.scss */
+  .container {
+    width: 1140px;
+  }
+
+  /* line 120, ../assets/sass/app.scss */
+  .tweet .body {
+    width: 955px;
+  }
+}
+@media (max-width: 979px) {
+  /* line 124, ../assets/sass/app.scss */
+  .app-name h1 {
+    font-size: 150px;
+  }
+
+  /* line 125, ../assets/sass/app.scss */
+  .container {
+    width: 768px;
+  }
+
+  /* line 126, ../assets/sass/app.scss */
+  .tweet .body {
+    width: 585px;
+  }
+}
+/*
+@media (max-width: 767px) {
+	.container{ width: 100%; }
+}*/
+/*
+.app-name h1:before{
+  top: 2px;
+  left: 2px;
+}
+.app-name h1:before, .app-name h1:after{
+  content: attr(title);
+  color: rgba(150, 150, 150, 0.15);
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
+.app-name h1:after{
+  top: 3px;
+  left: 3px;
+}*/

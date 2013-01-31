@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <link href='http://fonts.googleapis.com/css?family=Cabin:400,700' rel='stylesheet' type='text/css'>
+    <link href='./css/app.css' rel='stylesheet' type='text/css'>
+    <script src="./lib/jquery-1.8.3.min.js"></script>
+    <script src="./lib/handlebars-1.0.rc.2.js"></script>
+    <script src="./lib/ember.js"></script>
+    <script src="./lib/ember-data.js"></script>
+    <script src="./app.js"></script>
+  </head>
+  <body>
+    <!-- Application Layout -->
+    <script type="text/x-handlebars">
+      {{outlet header}}
+      <div class="container">
+        {{outlet}}
+      </div>
+      <footer>
+        <div class="container">
+          <div class="row right">
+            <p>Copyright 2013, Michael Dinerstein.</p>
+          </div>
+        </div>
+      </footer>
+    </script>
+    
+    <!-- Index Page -->
+    <script type="text/x-handlebars" data-template-name="index">
+      <div class="row center">
+        <div class="app-name">
+          <h1 title="Tweeter">Tweeter</h1>
+          <h3>View Your Timeline Without Those Pesky Links</h3>
+        </div>
+        <div class="button"><a href="/twitter/oauth">Log In With Twitter</a></div>
+      </div>
+    </script>
+    
+    <!-- Timeline Index Page -->
+    <script type="text/x-handlebars" data-template-name="timeline/index">
+      {{#unless controller.length}}
+        <p>No Tweets Without Links!.</p>
+      {{/unless}}
+      {{#each controller}}
+        <div class="tweet">
+          <div class="user">
+            <img src="http://api.twitter.com/1/users/profile_image/{{unbound user.screen_name}}.jpg" />
+          </div>
+          <div class="body">
+            <div class="message">{{text}}</div>
+            <div class="source">{{{unbound source}}}</div>
+          </div>
+          <div {{bindAttr class="favorited :favorite"}}></div>
+          <div class="clear"></div>
+        </div>
+      {{/each}}      
+    </script>
+    
+    <script type="text/x-handlebars" data-template-name="header">
+      <header>
+        <div class="container">
+          <div class="inner-wrapper">
+            <h1 class="pull-left">Tweeter</h1>
+            <div class="pull-right button plain">
+              {{#linkTo logout}}Logout{{/linkTo}}
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+      </header>
+    </script>
+  </body>
+</html>

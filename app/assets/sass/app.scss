@@ -1,0 +1,148 @@
+@import "compass/css3";
+
+.container{
+	width: 980px;
+	margin: 0px auto;
+	text-align: left;
+}
+
+.center{
+	text-align: center;
+}
+.right{
+	text-align: right;
+}
+.clear{ clear: both; }
+.pull-left{ float: left;}
+.pull-right{ float: right;}
+header{
+	.container{
+		.inner-wrapper{
+			background: rgba(200,200,200,0.5);
+			padding: 10px 20px;
+			h1{
+				line-height: 1.5em;
+				text-transform: uppercase;
+			}
+		}
+	}
+}
+
+.button{
+	&.plain{
+		background: none;
+		margin: 0px;
+	}
+	padding: 6px;
+	margin: 10px 0px;
+	@include border-radius(2px);
+	background: rgba(100,100,100,0.4);
+	display: inline-block;
+	a{
+		padding: 10px 20px;
+		display: inline-block;
+		@include background(linear-gradient(rgb(220,40,0),rgb(250,40,0)));
+		color: #fafafa;
+		text-decoration: none;
+	}
+}
+
+
+
+body{
+	margin: 0px; padding: 0px;
+  color: #fafafa;
+  background: url(../img/bg-slate.jpg);
+  font-family: "Cabin", "sans-serif";
+	text-align: center;
+}
+a{
+	color: rgb(220,40,0);
+	text-decoration: none;
+}
+h1,h2,h3,h4,h5,h6{ margin: 0px; line-height: 1.0em;}
+header{
+	text-align: left;
+}
+footer{
+	text-align: left;
+	font-size: 10px;
+}
+.app-name{
+  position: relative;
+  text-align: center;
+	h1{
+	  text-transform: uppercase;
+	  font-size: 190px;
+	  line-height: 1.0em;
+	}
+}
+
+.tweet{
+	@include background(linear-gradient(#555,#333));
+	padding: 20px 20px 35px;
+	border-bottom: 1px solid #999;
+	.user{
+		float: left;
+	}
+	.body{
+		float: left;
+		margin: 0px 15px;
+		width: 795px;
+		position: relative;
+		min-height: 73px;
+		.message{
+			font-size: 25px;
+			line-height: 1.2em;
+			margin: 0px;
+		}
+		.source{
+			position: absolute;
+			bottom: -25px; right: 0px;
+			font-size: 12px;
+		}
+	}
+	.favorite{
+		&.favorited{
+			background-image: url(/img/star.png);
+		}
+		float: right;
+		width: 40px; height: 37px;
+		background: url(/img/star-gray.png) 50% 50%;
+	}
+}
+
+//http://api.twitter.com/1/statuses/home_timeline.json?include_entities=true
+
+@media (min-width: 1140px) {
+	.app-name h1{ font-size: 230px;}
+	.container{ width: 1140px; }
+	.tweet .body{ width: 955px; }	
+}
+//(min-width: 768px) and 
+@media (max-width: 979px) { 
+	.app-name h1{ font-size: 150px;}
+	.container{ width: 768px;	}
+	.tweet .body{ width: 585px; }	
+}
+/*
+@media (max-width: 767px) {
+	.container{ width: 100%; }
+}*/
+
+/*
+.app-name h1:before{
+  top: 2px;
+  left: 2px;
+}
+.app-name h1:before, .app-name h1:after{
+  content: attr(title);
+  color: rgba(150, 150, 150, 0.15);
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
+.app-name h1:after{
+  top: 3px;
+  left: 3px;
+}*/
