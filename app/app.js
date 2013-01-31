@@ -1,5 +1,6 @@
 window.App = Ember.Application.create();
 
+//Tweet Object.
 App.Tweet = Ember.Object.extend({
 	created_at: new Date(),
 	favorited: false,
@@ -10,19 +11,17 @@ App.Tweet = Ember.Object.extend({
 	user: {}
 });
 
+//Router for the app. We have an index, timeline resource, and a logout path.
 App.Router.map(function(){
-	this.route("index");
-	this.resource("timeline",function(){
-		
-	});
+	this.resource("timeline",function(){});
 	this.route("logout");
 });
 
-//Index
+//Index. Redirect to the timeline if the user has an access token already.
 App.IndexRoute = Ember.Route.extend({
 	redirect: function(){
 		_this = this;
-		$.get("/users/has_access_token",function(response){
+		$.get("/users/me/has_access_token",function(response){
 			if (response.body)			_this.transitionTo("timeline");
 		});
 	}
@@ -31,9 +30,9 @@ App.IndexRoute = Ember.Route.extend({
 //Timeline
 //Timeline Controller. We can choose to save tweets with links or not. The CreateTweet function handles this logic.
 App.TimelineIndexController = Ember.ArrayController.extend({
-	saveTweetsWithLinks: true,
+	saveTweetsWithLinks: false,
 	createTweet: function(hash){
-		if ( !this.saveTweetsWithLinks && ( (hash.entities && hash.entities.urls && hash.entities.urls.length > 0) || (hash.text.indexOf("http://") || hash.text.indexOf("https://")) ) )	return false;
+		if ( !this.saveTweetsWithLinks && ((hash.entities && hash.entities.urls && hash.entities.urls.length > 0) || hash.text.indexOf("http://") != -1 || hash.text.indexOf("https://") != -1) )	return false;
 		this.pushObject(App.Tweet.create(hash));
 	}
 });

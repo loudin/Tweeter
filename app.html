@@ -12,8 +12,10 @@
     <!-- Application Layout -->
     <script type="text/x-handlebars">
       {{outlet header}}
-      <div class="container">
-        {{outlet}}
+      <div id="content_wrapper">
+        <div class="container">
+          {{outlet}}
+        </div>
       </div>
       <footer>
         <div class="container">
@@ -28,7 +30,7 @@
     <script type="text/x-handlebars" data-template-name="index">
       <div class="row center">
         <div class="app-name">
-          <h1 title="Tweeter">Tweeter</h1>
+          <h1 title="Tweeter">Tw<span class="boxee-black">ee</span>ter</h1>
           <h3>View Your Timeline Without Those Pesky Links</h3>
         </div>
         <div class="button"><a href="/twitter/oauth">Log In With Twitter</a></div>
@@ -47,7 +49,7 @@
           </div>
           <div class="body">
             <div class="message">{{text}}</div>
-            <div class="source">{{{unbound source}}}</div>
+            <div class="source">From: {{{unbound source}}}</div>
           </div>
           <div {{bindAttr class="favorited :favorite"}}></div>
           <div class="clear"></div>
@@ -55,11 +57,13 @@
       {{/each}}      
     </script>
     
+    <!-- Timeline Header. Doesn't appear on the Main Index Page -->
     <script type="text/x-handlebars" data-template-name="header">
       <header>
         <div class="container">
           <div class="inner-wrapper">
-            <h1 class="pull-left">Tweeter</h1>
+            <h1 class="pull-left">Tw<span class="boxee-black">ee</span>ter</h1>
+            <div class="page_header">Timeline</div>
             <div class="pull-right button plain">
               {{#linkTo logout}}Logout{{/linkTo}}
             </div>
@@ -68,5 +72,6 @@
         </div>
       </header>
     </script>
+
   </body>
 </html>

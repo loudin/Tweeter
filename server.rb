@@ -14,7 +14,7 @@ end
 #API
 #Link the user clicks on to begin the Twitter OAuth Process
 get '/twitter/oauth' do
-  consumer = OAuth::Consumer.new("Egbhne2a02xzuUeZxCY6eg", "loAU1gTQ6sNwHOB3qqmyzsnkvvWkaSfYZnGys2ioYdg",{ 
+  consumer = OAuth::Consumer.new(ENV["TWITTER_API_KEY"], ENV["TWITTER_API_SECRET"],{ 
     :site => "https://api.twitter.com",
     :scheme => :header
   })
@@ -23,7 +23,7 @@ get '/twitter/oauth' do
   redirect token.authorize_url(:oauth_callback => "http://127.0.0.1:9292/users/login")
 end
 
-#OAuth Callback
+#OAuth Callback - where Twitter redirects after the initial interaction.
 get '/users/login' do
   request_token = session[:request_token]  
   session[:access_token] = request_token.get_access_token
@@ -38,12 +38,14 @@ get '/timeline' do
   json :body => session[:access_token].get("/1/statuses/home_timeline.json?include_entities=true").body
 end
 
+#Logout of the app
 get '/logout' do
   session[:request_token] = nil
   session[:access_token] = nil
   redirect "/"
 end
 
-get '/users/has_access_token' do
+#Check to see if the user has an access token
+get '/users/me/has_access_token' do
   json :body => session && session[:access_token] ? true : false
 end

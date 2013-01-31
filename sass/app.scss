@@ -15,18 +15,25 @@
 .clear{ clear: both; }
 .pull-left{ float: left;}
 .pull-right{ float: right;}
+.boxee-black{ color: rgb(17,17,17);}
 header{
 	.container{
 		.inner-wrapper{
 			background: rgba(200,200,200,0.5);
 			padding: 10px 20px;
+			position: relative;
 			h1{
 				line-height: 1.5em;
 				text-transform: uppercase;
 			}
+			.page_header{
+				font-size: 22px;
+				position: absolute; top: 28%; left: 48%;
+			}
 		}
 	}
 }
+.smaller{ font-size: 0.5em; }
 
 .button{
 	&.plain{
@@ -45,6 +52,9 @@ header{
 		color: #fafafa;
 		text-decoration: none;
 	}
+}
+#content_wrapper{
+	min-height: 500px;
 }
 
 
@@ -75,13 +85,17 @@ footer{
 	  text-transform: uppercase;
 	  font-size: 190px;
 	  line-height: 1.0em;
+		.boxee-black{
+			@include text-shadow(0px 0px 16px #fff);
+		}
 	}
 }
 
 .tweet{
 	@include background(linear-gradient(#555,#333));
-	padding: 20px 20px 35px;
+	padding: 20px 20px 30px;
 	border-bottom: 1px solid #999;
+	position: relative;
 	.user{
 		float: left;
 	}
@@ -89,7 +103,6 @@ footer{
 		float: left;
 		margin: 0px 15px;
 		width: 795px;
-		position: relative;
 		min-height: 73px;
 		.message{
 			font-size: 25px;
@@ -98,7 +111,7 @@ footer{
 		}
 		.source{
 			position: absolute;
-			bottom: -25px; right: 0px;
+			bottom: 10px; right: 20px;
 			font-size: 12px;
 		}
 	}
@@ -115,13 +128,23 @@ footer{
 //http://api.twitter.com/1/statuses/home_timeline.json?include_entities=true
 
 @media (min-width: 1140px) {
-	.app-name h1{ font-size: 230px;}
+	.app-name h1{ 
+		font-size: 230px;
+		.boxee-black{
+			@include text-shadow(0px 0px 20px #fff);
+		}
+	}
 	.container{ width: 1140px; }
 	.tweet .body{ width: 955px; }	
 }
 //(min-width: 768px) and 
 @media (max-width: 979px) { 
-	.app-name h1{ font-size: 150px;}
+	.app-name h1{ 
+		font-size: 150px;
+		.boxee-black{
+			@include text-shadow(0px 0px 12px #fff);
+		}
+	}
 	.container{ width: 768px;	}
 	.tweet .body{ width: 585px; }	
 }
