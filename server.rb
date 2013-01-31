@@ -4,7 +4,7 @@ require 'oauth'
 require 'json'
 
 set :public_folder, File.dirname(__FILE__) + '/app'
-set :sessions, true
+use Rack::Session::Pool
 
 #Render the file on the server in the root directory.
 get '/' do

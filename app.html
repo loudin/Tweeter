@@ -39,22 +39,26 @@
     
     <!-- Timeline Index Page -->
     <script type="text/x-handlebars" data-template-name="timeline/index">
-      {{#unless controller.length}}
-        <p>No Tweets Without Links!.</p>
-      {{/unless}}
-      {{#each controller}}
-        <div class="tweet">
-          <div class="user">
-            <img src="http://api.twitter.com/1/users/profile_image/{{unbound user.screen_name}}.jpg" />
+      {{#if controller.error}}
+        <p class="error">{{controller.error}}</p>
+      {{else}}
+        {{#unless controller.length}}
+          <p>No Tweets Without Links!.</p>
+        {{/unless}}
+        {{#each controller}}
+          <div class="tweet">
+            <div class="user">
+              <img src="http://api.twitter.com/1/users/profile_image/{{unbound user.screen_name}}.jpg" />
+            </div>
+            <div class="body">
+              <div class="message">{{text}}</div>
+              <div class="source">From: {{{unbound source}}}</div>
+            </div>
+            <div {{bindAttr class="favorited :favorite"}}></div>
+            <div class="clear"></div>
           </div>
-          <div class="body">
-            <div class="message">{{text}}</div>
-            <div class="source">From: {{{unbound source}}}</div>
-          </div>
-          <div {{bindAttr class="favorited :favorite"}}></div>
-          <div class="clear"></div>
-        </div>
-      {{/each}}      
+        {{/each}}      
+      {{/if}}
     </script>
     
     <!-- Timeline Header. Doesn't appear on the Main Index Page -->

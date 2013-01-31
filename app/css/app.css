@@ -59,6 +59,12 @@ header .container .inner-wrapper .page_header {
   font-size: 0.5em;
 }
 
+/* line 37, ../../sass/app.scss */
+.error {
+  color: red;
+  font-weight: bold;
+}
+
 /* line 38, ../../sass/app.scss */
 .button {
   padding: 6px;
